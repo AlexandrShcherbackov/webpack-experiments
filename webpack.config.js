@@ -34,7 +34,7 @@ module.exports = {
     analitics: "./analitics.js",
   },
   output: {
-    filename: "[name].[contenthash].js",
+    filename: "[name].[hash].js",
     path: path.resolve(__dirname, "dist"),
   },
   resolve: {
@@ -66,14 +66,14 @@ module.exports = {
       ],
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: "[name].[hash].css",
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
             isDev ? 'style-loader' : {
             loader: MiniCssExtractPlugin.loader,
@@ -90,6 +90,8 @@ module.exports = {
             },
           },
           "css-loader",
+          'postcss-loader',
+          'sass-loader',
         ],
       },
       {

@@ -1,5 +1,6 @@
 @import './fonts';
 @import '~normalize.css';
+@import './main.scss';
 
 body {
     font-family: 'Roboto';
@@ -13,12 +14,4 @@ body {
 
 h1 {
     text-align: center;
-}
-
-.logo {
-    background-image: url('@assets/webpack.jpg');
-    background-position: center;
-    background-size: cover;
-    height: 200px;
-    width: 200px;
 }
