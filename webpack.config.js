@@ -30,8 +30,8 @@ module.exports = {
   context: path.resolve(__dirname, "src"),
   mode: "development",
   entry: {
-    main: "./index.js",
-    analitics: "./analitics.js",
+    main: "./index.jsx",
+    analitics: "./analitics.ts",
   },
   output: {
     filename: "[name].[hash].js",
@@ -101,6 +101,36 @@ module.exports = {
       {
         test: /\.(ttf|woff|woff2|eot)$/,
         use: ["file-loader"],
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          },
+        },
+      },
+      {
+        test: /\.m?ts$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-typescript']
+          },
+        },
+      },
+      {
+        test: /\.m?jsx$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          },
+        },
       },
     ],
   },

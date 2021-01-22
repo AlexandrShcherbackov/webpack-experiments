@@ -15,5 +15,6 @@ module.exports = {
         proposal: 'minimal',
       },
     ],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
   ],
 };
